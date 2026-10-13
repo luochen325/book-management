@@ -65,7 +65,8 @@ $(document).ready(function() {
   function renderTable(rows) {
     var html = '';
     if (rows.length === 0) {
-      html = '<tr class="empty-row"><td colspan="8">暂无数据</td></tr>';
+     var msg = keyword ? '未找到与“' + keyword + '”相关的图书' : '暂无数据';
+     html = '<tr class="empty-row"><td colspan="8">' + msg + '</td></tr>';
     }
     for (var i = 0; i < rows.length; i++) {
       var r = rows[i];
