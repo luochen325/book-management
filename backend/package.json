@@ -1,0 +1,19 @@
+{
+  "name": "book-management-backend",
+  "version": "1.0.0",
+  "description": "图书管理系统后台",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "npx mocha tests/regression.test.js --timeout 10000 --exit"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0"
+  }
+}

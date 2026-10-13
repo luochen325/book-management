@@ -1,0 +1,203 @@
+/* ============================================
+   图书管理系统 - 全局样式
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ---- 顶部导航 ---- */
+.header {
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  padding: 16px 24px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .icon { font-size: 26px; }
+
+/* ---- 主容器 ---- */
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+
+/* ---- 搜索栏 ---- */
+.search-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.search-bar input:focus { border-color: #1a73e8; }
+
+.btn {
+  display: inline-block;
+  padding: 9px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity .2s, background .2s;
+}
+
+.btn:hover { opacity: 0.88; }
+
+.btn-primary  { background: #1a73e8; }
+.btn-success  { background: #0f9d58; }
+.btn-warning  { background: #f9ab00; color: #333; }
+.btn-danger   { background: #ea4335; }
+.btn-secondary { background: #5f6368; }
+
+/* ---- 表格 ---- */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e8eaed;
+}
+
+th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #5f6368;
+}
+
+/* 隔行变色 */
+tr:nth-child(even) td { background: #f8f9fb; }
+tr:hover td { background: #e8f0fe; }
+
+.table-actions a {
+  margin-right: 10px;
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.table-actions a:hover { text-decoration: underline; }
+.table-actions .del-link { color: #ea4335; }
+
+/* ---- 分页 ---- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 13px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  color: #333;
+}
+
+.pagination button.active {
+  background: #1a73e8;
+  color: #fff;
+  border-color: #1a73e8;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ---- 详情 / 表单 ---- */
+.detail-table, .form-table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+}
+
+.detail-table td, .form-table td {
+  padding: 11px 14px;
+  border: 1px solid #e8eaed;
+  vertical-align: middle;
+}
+
+.detail-table td:first-child,
+.form-table td:first-child {
+  background: #f8f9fa;
+  font-weight: 600;
+  width: 130px;
+  color: #5f6368;
+}
+
+.form-table input,
+.form-table select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-table input:focus,
+.form-table select:focus { border-color: #1a73e8; }
+
+.form-table input[readonly] {
+  background: #f1f3f4;
+  color: #888;
+}
+
+.form-actions {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  max-width: 700px;
+  justify-content: flex-end;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+/* ---- 空状态 ---- */
+.empty { text-align: center; color: #999; padding: 40px 0; }
+
+/* ---- placeholder text ---- */
+.empty-row td { text-align: center; color: #999; }

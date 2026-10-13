@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修改图书 - 图书管理系统</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="header">
+    <span class="icon">✏️</span> 图书管理系统 - 修改图书
+  </div>
+
+  <div class="container">
+    <a class="back-link" href="index.html" id="backLink">← 返回列表</a>
+
+    <table class="form-table">
+      <tr>
+        <td><span style="color:red">*</span> 图书编号</td>
+        <td><input type="text" id="bookCde" maxlength="50"></td>
+      </tr>
+      <tr>
+        <td><span style="color:red">*</span> 图书名称</td>
+        <td><input type="text" id="bookName" maxlength="100"></td>
+      </tr>
+      <tr>
+        <td><span style="color:red">*</span> 图书类型</td>
+        <td><select id="bookType"></select></td>
+      </tr>
+      <tr>
+        <td>作者</td>
+        <td><input type="text" id="bookAuthor" maxlength="100"></td>
+      </tr>
+      <tr>
+        <td>出版社</td>
+        <td><input type="text" id="publishPress" maxlength="100"></td>
+      </tr>
+      <tr>
+        <td>出版日期</td>
+        <td><input type="date" id="publishDate"></td>
+      </tr>
+      <tr>
+        <td><span style="color:red">*</span> 是否借阅</td>
+        <td>
+          <select id="borrowed">
+            <option value="0">未借阅</option>
+            <option value="1">已借阅</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>入库人</td>
+        <td><input type="text" id="createdBy" readonly></td>
+      </tr>
+      <tr>
+        <td>入库时间</td>
+        <td><input type="text" id="creationTime" readonly></td>
+      </tr>
+    </table>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" id="btnSave">💾 保存</button>
+      <button class="btn btn-secondary" id="btnBack">↩ 返回</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/edit.js"></script>
+</body>
+</html>

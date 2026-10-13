@@ -1,0 +1,61 @@
+name: 接口回归测试
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: book_db
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -u root -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 等待 MySQL 就绪
+        run: |
+          for i in {1..30}; do
+            mysqladmin ping -h 127.0.0.1 -u root -proot --silent && echo "MySQL Ready" && break
+            echo "waiting for MySQL..."
+            sleep 2
+          done
+
+      - name: 初始化数据库
+        run: |
+          mysql -h 127.0.0.1 -u root -proot book_db < sql/book_db.sql
+
+      - name: 安装依赖
+        run: |
+          cd backend
+          npm install
+
+      - name: 运行回归测试
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASSWORD: root
+          DB_NAME: book_db
+        run: |
+          cd backend
+          npx mocha tests/regression.test.js --timeout 10000 --exit
