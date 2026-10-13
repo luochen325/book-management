@@ -44,7 +44,7 @@ describe('图书管理系统 接口回归测试', function() {
 
   it('GET /api/books?keyword=红楼梦 - 模糊搜索', function(done) {
     chai.request(app)
-      .get('/api/books?keyword=红楼梦')
+      .get('/api/books?keyword=' + encodeURIComponent('红楼梦'))
       .end(function(err, res) {
         expect(res).to.have.status(200);
         expect(res.body.code).to.equal(0);
