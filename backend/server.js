@@ -21,6 +21,13 @@ app.use('/api/types', require('./routes/types'));
 // SPA 兜底：所有非 API 非静态资源的请求回退到 index.html
 // (本项目中每个页面是独立 html，不需要 SPA 兜底，仅做静态托管即可)
 
+
+// 健康检查接口（用于 Actions 探活 / 运维监控）
+app.get('/api/health', (req, res) => {
+  res.json({ code: 0, status: 'ok' });
+});
+
+
 app.listen(PORT, () => {
   console.log(`图书管理系统已启动: http://localhost:${PORT}`);
 });
