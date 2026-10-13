@@ -52,6 +52,7 @@ $(document).ready(function() {
           return;
         }
         renderTable(res.data.rows);
+        renderRecordSummary(page, res.data.total);
         renderPagination(page, res.data.total, kw);
       },
       error: function() {
@@ -92,6 +93,13 @@ $(document).ready(function() {
         deleteBook(bookId);
       }
     });
+  }
+
+  /** 渲染记录总数 */
+  function renderRecordSummary(page, total) {
+    var start = total === 0 ? 0 : (page - 1) * 5 + 1;
+    var end = Math.min(page * 5, total);
+    $('#recordSummary').text('共 ' + total + ' 条记录，当前显示第 ' + start + ' - ' + end + ' 条');
   }
 
   /** 渲染分页 */
